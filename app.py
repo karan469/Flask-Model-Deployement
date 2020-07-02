@@ -8,6 +8,7 @@ from flask import Flask, render_template, request, redirect, flash, url_for
 
 
 app = Flask(__name__)			 # create an app instance
+app.secret_key = "secret key"
 
 app.config['UPLOAD_FOLDER'] = './'
 
@@ -15,9 +16,9 @@ app.config['UPLOAD_FOLDER'] = './'
 def index():
     return render_template('index.html')		 # which returns "hello world"if __name__ == "__main__":		# on running python app.py
 
-@app.route("/<name>")
-def hello_name(name):
-	return "Hello "+name
+# @app.route("/<name>")
+# def hello_name(name):
+# 	return "Hello "+name
 
 
 @app.route('/', methods=['POST'])
